@@ -1,0 +1,20 @@
+<form>
+<h1>
+  Search Lite
+</h1>
+<p>
+  You just searched for {{term}} and the result is {{result}}
+</p>
+
+<md-input-container>
+  <input mdInput
+         [(ngModel)]="term"
+         name="term"
+         placeholder="term"
+         type="text"
+         required>
+</md-input-container>
+<button md-raised-button (click)="search()">
+  Search
+</button>
+</form>

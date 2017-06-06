@@ -14,6 +14,10 @@ This is a tool for running many containers that depend on each other.
 
 [Docker Compose](https://github.com/docker/compose/releases)
 
-#### Starting the backend
+### Building
+Run `docker-compose build` to build the images.
 
-First run `docker-compose build` to build the image, then run `docker-compose up` to run the server.
+#### Running the services
+Add `127.0.0.1 frontend.howard.test` and `127.0.0.1 backend.howard.test` to `/etc/hosts`.
+
+Run `docker-compose up` to run the servers.

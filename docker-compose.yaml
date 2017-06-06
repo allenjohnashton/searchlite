@@ -1,7 +1,22 @@
 version: '3'
 services:
   backend:
-    build: .
+    build: backend/.
     image: searchlite/backend
+    networks:
+      default:
+        aliases:
+          - backend.howard.test
     ports:
+    # binds port in host to container
       - "8080:8080"
+  frontend:
+    build: angular-client/.
+    image: searchlite/frontend
+    networks:
+      default:
+        aliases:
+          - frontend.howard.test
+    # binds port in host to container
+    ports:
+      - "4200:4200"
