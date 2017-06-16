@@ -13,6 +13,9 @@ services:
   frontend:
     build: angular-client/.
     image: searchlite/frontend
+    # mount source for hot reloading
+    volumes:
+      - ./angular-client/src:/opt/searchlite/src
     networks:
       default:
         aliases:
