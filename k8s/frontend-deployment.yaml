@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - image: us.gcr.io/howard-west/searchlite-frontend:latest
+          name: frontend
+          ports:
+            - containerPort: 4200
+              name: application
