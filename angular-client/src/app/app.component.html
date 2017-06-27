@@ -1,20 +1,11 @@
-<form>
-<h1>
-  Search Lite
-</h1>
-<p>
-  You just searched for {{term}} and the result is {{result}}
-</p>
+<md-menu #appMenu="mdMenu" md-offset="20 20" >
+<button md-menu-item [disabled]="isAccountInfoPage()" (click)="navigateToAccount()">My Account</button>
+<button md-menu-item> REDL Trends </button>
+<button md-menu-item> Logout</button>
+</md-menu>
 
-<md-input-container>
-  <input mdInput
-         [(ngModel)]="term"
-         name="term"
-         placeholder="term"
-         type="text"
-         required>
-</md-input-container>
-<button md-raised-button (click)="search()">
-  Search
+
+<button md-icon-button [mdMenuTriggerFor]="appMenu">
+ <md-icon>account_box</md-icon>
 </button>
-</form>
+<router-outlet></router-outlet>

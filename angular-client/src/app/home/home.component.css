@@ -1,0 +1,33 @@
+
+@import url(https://fonts.googleapis.com/css?family=Cuprum);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+header {
+	font-size: 150px;
+	font-family: Roboto;
+	color: #660000;
+}
+
+md-input-container, md-select {
+	width: 100%;
+	font-size: 20px;
+}
+
+p{
+	font-family: Roboto;
+	text-indent: 200px;
+
+}
+
+h2{
+
+	font-family: Roboto;
+	font-size: 30px;
+}
+
+span{
+
+	font-family: Roboto;
+	font-size: 15px;
+}

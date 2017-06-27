@@ -1,0 +1,46 @@
+<form>
+	<div fxLayout="column" fxLayoutAlign="center center">
+		<div><header>REDL</header></div>
+		<div>
+			<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+				<div fxFlexFill>
+					<md-input-container>
+					  <input mdInput
+					         [(ngModel)]="term"
+					         name="term"
+					         placeholder="Search Term"
+					         type="text"
+					         required>
+					</md-input-container>
+				</div>
+				<div>
+					<md-select placeholder="File Type" [(ngModel)]="type" name="type">
+	   					<md-option *ngFor="let type of types" [value]="type.value">
+	   						{{ type.name }}
+	   					</md-option>
+					</md-select>
+				</div>
+			</div>
+		</div>
+		<div>
+			<button md-raised-button (click)="search()">
+	 			Search
+			</button>
+		</div>
+		<div><h2>RESULTS</h2></div>
+		<div>
+			<span *ngIf="!results">No Results</span>
+			<md-list>
+	 			<md-list-item *ngFor="let result of results"> 
+	 				<md-chip-list>
+	  					<md-chip *ngIf="getFileType(result) === 'html'" color="primary" selected="true">HTML</md-chip>
+	  					<md-chip *ngIf="getFileType(result) === 'pdf'" color="accent" selected="true">PDF</md-chip>
+	  					<md-chip *ngIf="getFileType(result) === 'doc'" color="ffccff" selected="true">DOC</md-chip>
+	  					<md-chip *ngIf="getFileType(result) === 'xml'" color="warn" selected="true">XML</md-chip>
+					</md-chip-list>
+	 				{{result}} 
+	 			</md-list-item>
+			</md-list>
+		</div>
+	</div>
+</form>
