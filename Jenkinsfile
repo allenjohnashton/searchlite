@@ -1,6 +1,6 @@
 node {
     def project = 'howard-west-search'
-    def websiteName = 'searchliteStarter'
+    def websiteName = 'searchlitestarter'
     def feImageTag = "us.gcr.io/${project}/${websiteName}-frontend:${branchName}_${env.BUILD_NUMBER}"
     def feBuildDir = "angular-client"
     def beImageTag = "us.gcr.io/${project}/${websiteName}-backend:${branchName}_${env.BUILD_NUMBER}"
