@@ -1,28 +1,28 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: searchlite-frontend-production
+  name: searchlite-backend-production
 spec:
   replicas: 1
   template:
     metadata:
-      name: frontend
+      name: backend
       labels:
         app: searchlite
-        role: frontend
+        role: backend
         env: production
     spec:
       containers:
-        - name: frontend
-          image: us.gcr.io/howard-west-search/searchlite-frontend:latest
+        - name: backend
+          image: us.gcr.io/howard-west-search/searchlite-backend:latest
           resources:
             limits:
               memory: "500Mi"
               cpu: "100m"
           imagePullPolicy: Always
           ports:
-            - containerPort: 4200
-              name: application
+            - name: backend
+              containerPort: 8080
           livenessProbe:
             tcpSocket:
-              port: frontend
+              port: backend

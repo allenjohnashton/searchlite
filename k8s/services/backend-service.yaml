@@ -4,8 +4,11 @@ metadata:
   name: backend
 spec:
   ports:
-    - port: 80
+    - name: http
+      port: 8080
       targetPort: 8080
       protocol: TCP
+  type: LoadBalancer
   selector:
-    app: backend
+    role: backend
+    app: searchlite
