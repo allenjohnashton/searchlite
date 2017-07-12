@@ -25,7 +25,7 @@ node {
         sh("sed -i.bak 's#us.gcr.io/howard-west-search/searchlite-frontend:latest#${feImageTag}#' ./k8s/production/*.yaml")
         sh("kubectl --namespace=${websiteName} apply -f k8s/services/")
         sh("kubectl --namespace=${websiteName} apply -f k8s/production/")
-        sh("echo http://`kubectl --namespace=${websiteName} get service/frontend | TAIL -n 1 | awk '{print \$3}'`")
+        sh("echo http://`kubectl --namespace=${websiteName} get service/frontend | tail -n 1 | awk '{print \$3}'`")
         break
 
         case "feature/k8s":
@@ -35,7 +35,7 @@ node {
         sh("kubectl apply -f k8s/namespace/")
         sh("kubectl --namespace=${websiteName} apply -f k8s/services/")
         sh("kubectl --namespace=${websiteName} apply -f k8s/production/")
-        sh("echo http://`kubectl --namespace=${websiteName} get service/frontend | TAIL -n 1 | awk '{print \$3}'`")
+        sh("echo http://`kubectl --namespace=${websiteName} get service/frontend | tail-n 1 | awk '{print \$3}'`")
         break
         // Roll out a dev environment
         default:
