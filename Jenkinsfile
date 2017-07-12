@@ -1,7 +1,7 @@
 node {
     def project = 'howard-west-search'
     def websiteName = 'searchlitestarter'
-    def branchName = "${env.BRANCH_NAME}".replace("/", "_") + "_${env";
+    def branchName = "${env.BRANCH_NAME}".replace("/", "_")
     def feImageTag = "us.gcr.io/${project}/${websiteName}-frontend:${branchName}.${env.BUILD_NUMBER}"
     def feBuildDir = "angular-client"
     def beImageTag = "us.gcr.io/${project}/${websiteName}-backend:${branchName}.${env.BUILD_NUMBER}"
