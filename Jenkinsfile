@@ -27,7 +27,7 @@ node {
         sh("echo http://`kubectl --namespace=${websiteName} get service/frontend | TAIL -n 1 | awk '{print \$3}'`")
         break
 
-        case "feature/k8s"
+        case "feature/k8s":
         // Change deployed image in canary to the one we just built
         sh("sed -i.bak 's#us.gcr.io/howard-west-search/searchlite-backend:latest#${beImageTag}#' ./k8s/production/*.yaml")
         sh("sed -i.bak 's#us.gcr.io/howard-west-search/searchlite-frontend:latest#${feImageTag}#' ./k8s/production/*.yaml")
