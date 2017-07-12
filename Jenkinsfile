@@ -1,9 +1,10 @@
 node {
     def project = 'howard-west-search'
     def websiteName = 'searchliteStarter'
-    def feImageTag = "us.gcr.io/${project}/${websiteName}-frontend:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
+    def branchName = "${env.BRANCH_NAME}".replace("/", "_");
+    def feImageTag = "us.gcr.io/${project}/${websiteName}-frontend:${branchName}.${env.BUILD_NUMBER}"
     def feBuildDir = "angular-client"
-    def beImageTag = "us.gcr.io/${project}/${websiteName}-backend:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
+    def beImageTag = "us.gcr.io/${project}/${websiteName}-backend:${branchName}.${env.BUILD_NUMBER}"
     def beBuildDir = "backend"
     checkout scm
 
