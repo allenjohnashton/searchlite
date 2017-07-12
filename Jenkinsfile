@@ -13,8 +13,8 @@ node {
     sh("docker build -t ${beImageTag} ${beBuildDir}")
 
     stage 'Push image to registry'
-    sh("gcloud docker push ${feImageTag}")
-    sh("gcloud docker push ${beImageTag}")
+    sh("gcloud docker -- push ${feImageTag}")
+    sh("gcloud docker -- push ${beImageTag}")
 
     stage "Deploy Application"
     switch (env.BRANCH_NAME) {
