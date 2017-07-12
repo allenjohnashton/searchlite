@@ -26,3 +26,4 @@ spec:
           livenessProbe:
             tcpSocket:
               port: backend
+          command: ["npm", "start-production"]
