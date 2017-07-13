@@ -17,6 +17,9 @@ spec:
           image: us.gcr.io/howard-west-search/searchlite-frontend:latest
           resources:
             limits:
+              memory: "1Gi"
+              cpu: "1"
+              requests:
               memory: "500Mi"
               cpu: "100m"
           imagePullPolicy: Always
