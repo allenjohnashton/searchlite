@@ -1,5 +1,5 @@
 node {
-    def project = 'howard-west-search'
+    def project = 'howard-west-1'
     def websiteName = 'searchlitestarter'
     def branchName = "${env.BRANCH_NAME}".replace("/", "_")
     def feImageTag = "us.gcr.io/${project}/${websiteName}-frontend:${branchName}.${env.BUILD_NUMBER}"
