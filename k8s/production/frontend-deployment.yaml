@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: searchlite-frontend-production
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: frontend
+      labels:
+        app: searchlite
+        role: frontend
+        env: production
+    spec:
+      containers:
+        - name: frontend
+          image: us.gcr.io/howard-west-search/searchlite-frontend:latest
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+              requests:
+              memory: "500Mi"
+              cpu: "100m"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4200
+              name: application
+          livenessProbe:
+            tcpSocket:
+              port: frontend
+          command: ["npm", "run", "start-production"]

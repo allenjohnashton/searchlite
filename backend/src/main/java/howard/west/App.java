@@ -46,7 +46,8 @@ public class App {
     // so that is not an issue
     port(8080);
 
-    enableCORS("http://frontend.howard.test:4200", "GET", "");
+    // Extremely insecure, you would not do this in real life
+    enableCORS("*", "GET", "");
 
     //GSON is used to map to json.
     Gson gson = new Gson();

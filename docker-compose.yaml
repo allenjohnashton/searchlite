@@ -2,7 +2,7 @@ version: '3'
 services:
   backend:
     build: backend/.
-    image: searchlite/backend
+    image: us.gcr.io/howard-west-search/searchlite-backend
     networks:
       default:
         aliases:
@@ -12,7 +12,7 @@ services:
       - "8080:8080"
   frontend:
     build: angular-client/.
-    image: searchlite/frontend
+    image: us.gcr.io/howard-west-search/searchlite-frontend
     # mount source for hot reloading
     volumes:
       - ./angular-client/src:/opt/searchlite/src

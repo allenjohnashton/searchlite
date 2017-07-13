@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: searchlite-backend-production
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: searchlite
+        role: backend
+        env: production
+    spec:
+      containers:
+        - name: backend
+          image: us.gcr.io/howard-west-search/searchlite-backend:latest
+          resources:
+            limits:
+              memory: "8Gi"
+              cpu: "2"
+            requests:
+              memory: "2Gi"
+              cpu: "1"
+          imagePullPolicy: Always
+          ports:
+            - name: backend
+              containerPort: 8080
+          livenessProbe:
+            tcpSocket:
+              port: backend
